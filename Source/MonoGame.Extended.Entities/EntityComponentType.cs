@@ -42,14 +42,12 @@ namespace MonoGame.Extended.Entities
     [DebuggerDisplay("Index:{" + nameof(Index) + "}")]
     public sealed class EntityComponentType
     {
-        private static int _nextIndex;
-
         public int Index { get; }
         public Type Type { get; }
 
-        internal EntityComponentType(Type type)
+        internal EntityComponentType(Type type, int index)
         {
-            Index = _nextIndex++;
+            Index = index;
             Type = type;
         }
     }

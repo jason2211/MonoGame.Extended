@@ -61,6 +61,8 @@ namespace MonoGame.Extended.Entities
         public int TotalEntitiesCount => _pool.TotalCount;
         public int ActiveEntitiesCount => _pool.InUseCount;
 
+        private int _componentIndex;
+
         public event EntityDelegate EntityCreated;
         public event EntityDelegate EntityAdded;
         public event EntityDelegate EntityRemoved;
@@ -417,8 +419,9 @@ namespace MonoGame.Extended.Entities
             foreach (var componentTypeInfo in componentTypeInfos)
             {
                 var type = componentTypeInfo.AsType();
-                var componentType = new EntityComponentType(type);
+                var componentType = new EntityComponentType(type, _componentIndex);
                 _componentTypes.Add(type, componentType);
+                _componentIndex++;
             }
         }
 
