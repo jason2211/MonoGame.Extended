@@ -36,7 +36,7 @@ namespace MonoGame.Extended.Screens
             Show<T>(true);
         }
 
-        public void Show()
+        public virtual void Show()
         {
             if (!IsInitialized)
                 Initialize();
@@ -44,7 +44,7 @@ namespace MonoGame.Extended.Screens
             IsVisible = true;
         }
 
-        public void Hide()
+        public virtual void Hide()
         {
             IsVisible = false;
         }
