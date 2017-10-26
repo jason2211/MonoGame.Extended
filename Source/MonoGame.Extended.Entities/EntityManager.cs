@@ -403,7 +403,7 @@ namespace MonoGame.Extended.Entities
             {
                 var components = _componentTypeEntitiesToComponents[i];
 
-                Debug.Assert(components != null);
+                if (components == null) continue;
 
                 EntityComponent component;
                 if (!components.TryGetValue(entity, out component))
