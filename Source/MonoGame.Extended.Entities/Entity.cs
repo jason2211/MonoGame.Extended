@@ -35,7 +35,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using MonoGame.Extended.Collections;
 // ReSharper disable InconsistentNaming
