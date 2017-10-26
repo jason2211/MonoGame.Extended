@@ -35,6 +35,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using MonoGame.Extended.Collections;
 // ReSharper disable InconsistentNaming
@@ -152,6 +153,7 @@ namespace MonoGame.Extended.Entities
 
         private void Reset()
         {
+            _name = null;
             _group = null;
             SystemBits.SetAll(false);
             ComponentBits.SetAll(false);
