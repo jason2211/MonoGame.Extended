@@ -190,7 +190,7 @@ namespace MonoGame.Extended.Entities
         {
             Bag<Entity> entities;
 
-            if (_entitiesByGroup.TryGetValue(entity._group, out entities))
+            if (entity._group != null && _entitiesByGroup.TryGetValue(entity._group, out entities))
                 entities.Remove(entity);
         }
 
@@ -340,7 +340,9 @@ namespace MonoGame.Extended.Entities
         {
             Debug.Assert(entity != null);
             Debug.Assert(componentType != null);
-            Debug.Assert(componentType.Index < _componentTypeEntitiesToComponents.Count);
+
+            if (componentType.Index >= _componentTypeEntitiesToComponents.Count)
+                return null;
 
             var components = _componentTypeEntitiesToComponents[componentType.Index];
 
