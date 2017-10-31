@@ -259,6 +259,11 @@ namespace MonoGame.Extended.Entities
             _systemManager.Update(gameTime);
         }
 
+        public void Predraw()
+        {
+            _systemManager.Predraw();
+        }
+
         public override void Draw(GameTime gameTime)
         {
             _systemManager.Draw(gameTime);

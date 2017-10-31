@@ -79,6 +79,10 @@ namespace MonoGame.Extended.Entities
             End(gameTime);
         }
 
+        public virtual void Predraw()
+        {
+        }
+
         public void Toggle()
         {
             IsEnabled = !IsEnabled;

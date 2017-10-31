@@ -95,6 +95,13 @@ namespace MonoGame.Extended.Entities
             ProcessLayers(gameTime, _updateLayers);
         }
 
+        internal void Predraw()
+        {
+            foreach (var systemLayer in _drawLayers)
+                foreach (var system in systemLayer.SynchronousSystems)
+                    system.Predraw();
+        }
+
         internal void Draw(GameTime gameTime)
         {
             ProcessLayers(gameTime, _drawLayers);
