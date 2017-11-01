@@ -32,6 +32,11 @@ namespace MonoGame.Extended.Animations.SpriteSheets
             _animationDataDictionary.Remove(name);
         }
 
+        public bool Contains(string name)
+        {
+            return _animationDataDictionary.ContainsKey(name);
+        }
+
         public SpriteSheetAnimation Create(string name)
         {
             SpriteSheetAnimationData data;
