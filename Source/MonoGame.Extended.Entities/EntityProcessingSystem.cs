@@ -80,6 +80,21 @@ namespace MonoGame.Extended.Entities
             }
         }
 
+        public override void Predraw()
+        {
+            base.Predraw();
+
+            for (var i = _activeEntities.Count - 1; i >= 0; i--)
+            {
+                var entity = _activeEntities[i];
+                Predraw(entity);
+            }
+        }
+
+        protected virtual void Predraw(Entity entity)
+        {
+        }
+
         protected virtual void Process(GameTime gameTime, Entity entity)
         {
         }
