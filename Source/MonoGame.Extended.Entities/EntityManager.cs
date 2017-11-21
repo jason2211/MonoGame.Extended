@@ -37,6 +37,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using MonoGame.Extended.Collections;
 
@@ -153,6 +154,21 @@ namespace MonoGame.Extended.Entities
         internal void RemoveEntityName(string name)
         {
             _entitiesByName.Remove(name);
+        }
+
+        public IEnumerable<Entity> GetActiveEntities()
+        {
+            var entities = _pool.Where(x => x.IsActive && !x.WaitingToBeRemoved);
+            return entities;
+        }
+
+        public IEnumerable<Entity> GetActiveEntitiesByGroup(string groupName)
+        {
+            if (string.IsNullOrEmpty(groupName))
+                return null;
+
+            var entities = GetEntitiesByGroup(groupName) ?? (IEnumerable<Entity>) new List<Entity>();
+            return entities.Where(x => x.IsActive && !x.WaitingToBeRemoved);
         }
 
         public Bag<Entity> GetEntitiesByGroup(string groupName)
