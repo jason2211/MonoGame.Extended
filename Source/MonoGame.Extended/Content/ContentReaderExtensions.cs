@@ -26,7 +26,7 @@ namespace MonoGame.Extended.Content
                 var lastDirectoryIndex = assetName.LastIndexOf('/', ellipseIndex - 1);
                 if (lastDirectoryIndex == -1)
                     lastDirectoryIndex = 0;
-                assetName = assetName.Remove(lastDirectoryIndex, ellipseIndex + 4);
+                assetName = assetName.Remove(lastDirectoryIndex, ellipseIndex + 3 - lastDirectoryIndex);
                 ellipseIndex = assetName.IndexOf("/../", StringComparison.Ordinal);
             }
 
